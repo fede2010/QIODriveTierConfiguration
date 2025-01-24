@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.fede2010.qiodrivetierconfiguration.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "QIODriveTierConfiguration.refmap.json",
+  "mixins": [
+    "QIODriveTierMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
