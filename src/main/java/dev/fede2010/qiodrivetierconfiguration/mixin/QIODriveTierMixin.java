@@ -12,22 +12,22 @@ public class QIODriveTierMixin {
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(longValue = 16000L))
     private static long modifyBaseCount(long original) {
-        return 32_000_000L;
+        return 32_768_000L;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(longValue = 128000L))
     private static long modifyHyperDenseCount(long original) {
-        return 64_000_000L;
+        return 131_072_000L;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(longValue = 1048000L))
     private static long modifyTimeDilatingCount(long original) {
-        return 128_000_000L;
+        return 524_288_000L;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(longValue = 16000000000L))
     private static long modifySupermassiveCount(long original) {
-        return 256_000_000L;
+        return 2_097_152_000L;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 128))
