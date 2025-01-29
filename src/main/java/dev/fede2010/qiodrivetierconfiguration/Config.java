@@ -20,8 +20,8 @@ public class Config {
 
     // Configuración para el QIO Drive HyperDense
     public static final ForgeConfigSpec.LongValue QIODRIVE_HYPERDENSE_QUANTITY = BUILDER
-            .comment("Cantidad máxima para QIO Drive HyperDense (Default: 64,000,000)")
-            .defineInRange("hyperDenseQuantity", 64_000_000L, 0L, Long.MAX_VALUE);
+            .comment("Cantidad máxima para QIO Drive HyperDense (Default: 128,000,000)")
+            .defineInRange("hyperDenseQuantity", 128_000_000L, 0L, Long.MAX_VALUE);
 
     public static final ForgeConfigSpec.IntValue QIODRIVE_HYPERDENSE_SIZE = BUILDER
             .comment("Tipos máximos para QIO Drive HyperDense (Default: 2048)")
@@ -29,8 +29,8 @@ public class Config {
 
     // Configuración para el QIO Drive TimeDilating
     public static final ForgeConfigSpec.LongValue QIODRIVE_TIMEDILATING_QUANTITY = BUILDER
-            .comment("Cantidad máxima para QIO Drive TimeDilating (Default: 128,000,000)")
-            .defineInRange("timeDilatingQuantity", 128_000_000L, 0L, Long.MAX_VALUE);
+            .comment("Cantidad máxima para QIO Drive TimeDilating (Default: 512,000,000)")
+            .defineInRange("timeDilatingQuantity", 512_000_000L, 0L, Long.MAX_VALUE);
 
     public static final ForgeConfigSpec.IntValue QIODRIVE_TIMEDILATING_SIZE = BUILDER
             .comment("Tipos máximos para QIO Drive TimeDilating (Default: 4096)")
@@ -38,8 +38,8 @@ public class Config {
 
     // Configuración para el QIO Drive Supermassive
     public static final ForgeConfigSpec.LongValue QIODRIVE_SUPERMASSIVE_QUANTITY = BUILDER
-            .comment("Cantidad máxima para QIO Drive Supermassive (Default: 256,000,000)")
-            .defineInRange("supermassiveQuantity", 256_000_000L, 0L, Long.MAX_VALUE);
+            .comment("Cantidad máxima para QIO Drive Supermassive (Default: 2,048,000,000)")
+            .defineInRange("supermassiveQuantity", 2_048_000_000L, 0L, Long.MAX_VALUE);
 
     public static final ForgeConfigSpec.IntValue QIODRIVE_SUPERMASSIVE_SIZE = BUILDER
             .comment("Tipos máximos para QIO Drive Supermassive (Default: 8192)")
