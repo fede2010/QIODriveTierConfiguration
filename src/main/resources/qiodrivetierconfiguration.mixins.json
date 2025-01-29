@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "QIODriveTierConfiguration.refmap.json",
   "mixins": [
-    "QIODriveTierMixin"
+    "QIODriveTierMixin",
+    "ExtraQIODriveTierMixin"
   ],
   "client": [
   ],
