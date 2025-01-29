@@ -15,9 +15,7 @@ public class ConfigHandler {
     public static void onConfigLoaded(ModConfigEvent.Loading event) {
         updateQIODriveValues();
 
-        System.out.println("valor de mekanism instalado: " + Config.mekanismExtrasInstalled);
         if(Config.mekanismExtrasInstalled){
-            System.out.println("print desde config true");
             updateExtraQIODriveValues();
         }
     }
@@ -35,10 +33,10 @@ public class ConfigHandler {
 
     private static void updateExtraQIODriveValues() {
         try {
-            modifyField(ExtraQIODriverTier.COLLAPSE, Config.QIODriveBaseQuantity, Config.QIODriveBaseSize);
-            modifyField(ExtraQIODriverTier.GAMMA, Config.QIODriveHyperDenseQuantity, Config.QIODriveHyperDenseSize);
-            modifyField(ExtraQIODriverTier.BLACK_HOLE, Config.QIODriveTimeDilatingQuantity, Config.QIODriveTimeDilatingSize);
-            modifyField(ExtraQIODriverTier.SINGULARITY, Config.QIODriveSupermassiveQuantity, Config.QIODriveSupermassiveSize);
+            modifyField(ExtraQIODriverTier.COLLAPSE, Config.QIODriveCollapseQuantity, Config.QIODriveCollapseSize);
+            modifyField(ExtraQIODriverTier.GAMMA, Config.QIODriveGammaQuantity, Config.QIODriveGammaSize);
+            modifyField(ExtraQIODriverTier.BLACK_HOLE, Config.QIODriveBlackHoleQuantity, Config.QIODriveBlackHoleSize);
+            modifyField(ExtraQIODriverTier.SINGULARITY, Config.QIODriveSingularityQuantity, Config.QIODriveSingularitySize);
         } catch (Exception e) {
             e.printStackTrace();
         }
