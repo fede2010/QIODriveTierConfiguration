@@ -15,17 +15,32 @@ public class ConfigHandler {
     public static void onConfigLoaded(ModConfigEvent.Loading event) {
         updateQIODriveValues();
 
-        if(Config.mekanismExtrasInstalled){
+        if (Config.mekanismExtrasInstalled) {
             updateExtraQIODriveValues();
         }
     }
 
     private static void updateQIODriveValues() {
         try {
-            modifyField(QIODriveTier.BASE, Config.QIODriveBaseQuantity, Config.QIODriveBaseSize);
-            modifyField(QIODriveTier.HYPER_DENSE, Config.QIODriveHyperDenseQuantity, Config.QIODriveHyperDenseSize);
-            modifyField(QIODriveTier.TIME_DILATING, Config.QIODriveTimeDilatingQuantity, Config.QIODriveTimeDilatingSize);
-            modifyField(QIODriveTier.SUPERMASSIVE, Config.QIODriveSupermassiveQuantity, Config.QIODriveSupermassiveSize);
+            modifyField(QIODriveTier.BASE,
+                    Config.QIODRIVE_BASE_QUANTITY.get(),
+                    Config.QIODRIVE_BASE_SIZE.get()
+            );
+
+            modifyField(QIODriveTier.HYPER_DENSE,
+                    Config.QIODRIVE_HYPERDENSE_QUANTITY.get(),
+                    Config.QIODRIVE_HYPERDENSE_SIZE.get()
+            );
+
+            modifyField(QIODriveTier.TIME_DILATING,
+                    Config.QIODRIVE_TIMEDILATING_QUANTITY.get(),
+                    Config.QIODRIVE_TIMEDILATING_SIZE.get()
+            );
+
+            modifyField(QIODriveTier.SUPERMASSIVE,
+                    Config.QIODRIVE_SUPERMASSIVE_QUANTITY.get(),
+                    Config.QIODRIVE_SUPERMASSIVE_SIZE.get()
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,36 +48,47 @@ public class ConfigHandler {
 
     private static void updateExtraQIODriveValues() {
         try {
-            modifyField(ExtraQIODriverTier.COLLAPSE, Config.QIODriveCollapseQuantity, Config.QIODriveCollapseSize);
-            modifyField(ExtraQIODriverTier.GAMMA, Config.QIODriveGammaQuantity, Config.QIODriveGammaSize);
-            modifyField(ExtraQIODriverTier.BLACK_HOLE, Config.QIODriveBlackHoleQuantity, Config.QIODriveBlackHoleSize);
-            modifyField(ExtraQIODriverTier.SINGULARITY, Config.QIODriveSingularityQuantity, Config.QIODriveSingularitySize);
+            modifyField2(ExtraQIODriverTier.COLLAPSE,
+                    Config.QIODRIVE_COLLAPSE_QUANTITY.get(),
+                    Config.QIODRIVE_COLLAPSE_SIZE.get()
+            );
+
+            modifyField2(ExtraQIODriverTier.GAMMA,
+                    Config.QIODRIVE_GAMMA_QUANTITY.get(),
+                    Config.QIODRIVE_GAMMA_SIZE.get()
+            );
+
+            modifyField2(ExtraQIODriverTier.BLACK_HOLE,
+                    Config.QIODRIVE_BLACK_HOLE_QUANTITY.get(),
+                    Config.QIODRIVE_BLACK_HOLE_SIZE.get()
+            );
+
+            modifyField2(ExtraQIODriverTier.SINGULARITY,
+                    Config.QIODRIVE_SINGULARITY_QUANTITY.get(),
+                    Config.QIODRIVE_SINGULARITY_SIZE.get()
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private static void modifyField(QIODriveTier tier, long newCount, int newTypes) throws Exception {
-        // Campo 'count'
         Field countField = QIODriveTier.class.getDeclaredField("count");
-        countField.setAccessible(true); // Ignora los checks de acceso
+        countField.setAccessible(true);
         countField.set(tier, newCount);
 
-        // Campo 'types'
         Field typesField = QIODriveTier.class.getDeclaredField("types");
-        typesField.setAccessible(true); // Ignora los checks de acceso
+        typesField.setAccessible(true);
         typesField.set(tier, newTypes);
     }
 
-    private static void modifyField(ExtraQIODriverTier tier, long newCount, int newTypes) throws Exception {
-        // Campo 'count'
+    private static void modifyField2(ExtraQIODriverTier tier, long newCount, int newTypes) throws Exception {
         Field countField = ExtraQIODriverTier.class.getDeclaredField("count");
-        countField.setAccessible(true); // Ignora los checks de acceso
+        countField.setAccessible(true);
         countField.set(tier, newCount);
 
-        // Campo 'types'
         Field typesField = ExtraQIODriverTier.class.getDeclaredField("types");
-        typesField.setAccessible(true); // Ignora los checks de acceso
+        typesField.setAccessible(true);
         typesField.set(tier, newTypes);
     }
 }

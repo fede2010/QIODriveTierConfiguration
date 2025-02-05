@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "dev.fede2010.qiodrivetierconfiguration.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "QIODriveTierConfiguration.refmap.json",
+  "refmap": "qiodrivetierconfiguration.refmap.json",
   "mixins": [
     "QIODriveTierMixin",
     "ExtraQIODriveTierMixin"
