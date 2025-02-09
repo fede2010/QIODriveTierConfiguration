@@ -1,6 +1,7 @@
-package dev.fede2010.qiodrivetierconfiguration;
+package dev.fede2010.qiodrivetierconfiguration.config;
 
 import com.jerry.mekanism_extras.common.tier.ExtraQIODriverTier;
+import dev.fede2010.qiodrivetierconfiguration.QIODriveTierConfiguration;
 import mekanism.common.tier.QIODriveTier;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

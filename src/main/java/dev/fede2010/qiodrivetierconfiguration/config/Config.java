@@ -1,5 +1,6 @@
-package dev.fede2010.qiodrivetierconfiguration;
+package dev.fede2010.qiodrivetierconfiguration.config;
 
+import dev.fede2010.qiodrivetierconfiguration.QIODriveTierConfiguration;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -79,5 +80,5 @@ public class Config {
             .comment("Tipos máximos para QIO Drive Singularity (Default: 1,048,576)")
             .defineInRange("singularitySize", 1048576, 0, Integer.MAX_VALUE);
 
-    static final ForgeConfigSpec SPEC = BUILDER.build();
+    public static final ForgeConfigSpec SPEC = BUILDER.build();
 }
