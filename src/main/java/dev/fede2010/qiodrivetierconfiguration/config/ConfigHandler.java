@@ -14,14 +14,14 @@ public class ConfigHandler {
 
     @SubscribeEvent
     public static void onConfigLoaded(ModConfigEvent.Loading event) {
-        updateQIODriveValues();
+        updateQIODrive();
 
-        if (Config.mekanismExtrasInstalled) {
-            updateExtraQIODriveValues();
+        if (Config.mekanismExtrasInstalado) {
+            updateExtraQIODrive();
         }
     }
 
-    private static void updateQIODriveValues() {
+    private static void updateQIODrive() {
         try {
             modifyField(QIODriveTier.BASE,
                     Config.QIODRIVE_BASE_QUANTITY.get(),
@@ -47,24 +47,24 @@ public class ConfigHandler {
         }
     }
 
-    private static void updateExtraQIODriveValues() {
+    private static void updateExtraQIODrive() {
         try {
-            modifyField2(ExtraQIODriverTier.COLLAPSE,
+            modifyField(ExtraQIODriverTier.COLLAPSE,
                     Config.QIODRIVE_COLLAPSE_QUANTITY.get(),
                     Config.QIODRIVE_COLLAPSE_SIZE.get()
             );
 
-            modifyField2(ExtraQIODriverTier.GAMMA,
+            modifyField(ExtraQIODriverTier.GAMMA,
                     Config.QIODRIVE_GAMMA_QUANTITY.get(),
                     Config.QIODRIVE_GAMMA_SIZE.get()
             );
 
-            modifyField2(ExtraQIODriverTier.BLACK_HOLE,
+            modifyField(ExtraQIODriverTier.BLACK_HOLE,
                     Config.QIODRIVE_BLACK_HOLE_QUANTITY.get(),
                     Config.QIODRIVE_BLACK_HOLE_SIZE.get()
             );
 
-            modifyField2(ExtraQIODriverTier.SINGULARITY,
+            modifyField(ExtraQIODriverTier.SINGULARITY,
                     Config.QIODRIVE_SINGULARITY_QUANTITY.get(),
                     Config.QIODRIVE_SINGULARITY_SIZE.get()
             );
@@ -73,23 +73,21 @@ public class ConfigHandler {
         }
     }
 
-    private static void modifyField(QIODriveTier tier, long newCount, int newTypes) throws Exception {
-        Field countField = QIODriveTier.class.getDeclaredField("count");
-        countField.setAccessible(true);
-        countField.set(tier, newCount);
+    /**
+     * Modifica los valores de los campos "count" y "types" en un objeto dado mediante reflexión.
+     *
+     * @param tier     Objeto cuya clase debe contener los campos "count" y "types".
+     * @param newCount Nuevo valor para el campo "count".
+     * @param newTypes Nuevo valor para el campo "types".
+     * @throws Exception Si los campos no existen o no se pueden modificar.
+     */
+    private static void modifyField(Object tier, long newCount, int newTypes) throws Exception {
+        Field count = QIODriveTier.class.getDeclaredField("count");
+        count.setAccessible(true);
+        count.set(tier, newCount);
 
-        Field typesField = QIODriveTier.class.getDeclaredField("types");
-        typesField.setAccessible(true);
-        typesField.set(tier, newTypes);
-    }
-
-    private static void modifyField2(ExtraQIODriverTier tier, long newCount, int newTypes) throws Exception {
-        Field countField = ExtraQIODriverTier.class.getDeclaredField("count");
-        countField.setAccessible(true);
-        countField.set(tier, newCount);
-
-        Field typesField = ExtraQIODriverTier.class.getDeclaredField("types");
-        typesField.setAccessible(true);
-        typesField.set(tier, newTypes);
+        Field types = QIODriveTier.class.getDeclaredField("types");
+        types.setAccessible(true);
+        types.set(tier, newTypes);
     }
 }

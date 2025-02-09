@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 public class Config {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
-    public static boolean mekanismExtrasInstalled = ModList.get().isLoaded("mekanism_extras");
+    public static boolean mekanismExtrasInstalado = ModList.get().isLoaded("mekanism_extras");
 
     // QIO Drive Base
     public static final ForgeConfigSpec.LongValue QIODRIVE_BASE_QUANTITY = BUILDER

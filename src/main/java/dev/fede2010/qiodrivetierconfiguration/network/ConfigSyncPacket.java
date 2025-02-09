@@ -7,8 +7,6 @@ import java.util.function.Supplier;
 
 public class ConfigSyncPacket {
 
-
-
     private final long baseQuantity;
     private final int baseSize;
     private final long hyperDenseQuantity;

@@ -38,7 +38,7 @@ public class Tooltip {
         modificarTooltip(event, itemId, new ResourceLocation("mekanism", "qio_drive_supermassive"), "Items:", ClientData.getSupermassiveQuantity());
         modificarTooltip(event, itemId, new ResourceLocation("mekanism", "qio_drive_supermassive"), "Types:", ClientData.getSupermassiveSize());
 
-        if (Config.mekanismExtrasInstalled) {
+        if (Config.mekanismExtrasInstalado) {
             //Items Mekanism Extras
             modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_collapse"), "Items:", ClientData.getCollapseQuantity());
             modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_collapse"), "Types:", ClientData.getCollapseSize());
@@ -60,21 +60,21 @@ public class Tooltip {
      * @param event          El evento ItemTooltipEvent.
      * @param itemId         ResourceLocation del ítem actual.
      * @param targetResource ResourceLocation objetivo.
-     * @param prefix         Prefijo a buscar y colocar en el tooltip (por ejemplo, "Items:" o "Types:").
-     * @param customValue    Valor personalizado (Number) que se inyectará en el tooltip.
+     * @param prefijo         Prefijo a buscar y colocar en el tooltip (por ejemplo, "Items:" o "Types:").
+     * @param valor    Valor personalizado (Number) que se inyectará en el tooltip.
      */
-    private static void modificarTooltip(ItemTooltipEvent event, ResourceLocation itemId, ResourceLocation targetResource, String prefix, Number customValue) {
+    private static void modificarTooltip(ItemTooltipEvent event, ResourceLocation itemId, ResourceLocation targetResource, String prefijo, Number valor) {
         if (itemId != null && itemId.equals(targetResource)) {
             List<Component> tooltips = event.getToolTip();
             for (int i = 0; i < tooltips.size(); i++) {
                 Component tooltip = tooltips.get(i);
                 String rawText = tooltip.getString();
-                if (rawText.contains("/") && rawText.startsWith(prefix)) {
+                if (rawText.contains("/") && rawText.startsWith(prefijo)) {
                     String[] parts = rawText.split("/");
-                    String firstValue = parts[0].replace(prefix, "").trim();
-                    Component formattedTooltip = Component.literal(prefix + " ")
+                    String firstValue = parts[0].replace(prefijo, "").trim();
+                    Component formattedTooltip = Component.literal(prefijo + " ")
                             .append(Component.literal(firstValue).withStyle(ChatFormatting.BLUE))
-                            .append(" / " + NumberFormat.getInstance(Locale.ITALIAN).format(customValue))
+                            .append(" / " + NumberFormat.getInstance(Locale.ITALIAN).format(valor))
                             .withStyle(ChatFormatting.GRAY);
                     tooltips.set(i, formattedTooltip);
                     return;
