@@ -25,22 +25,26 @@ public class ConfigHandler {
         try {
             modifyField(QIODriveTier.BASE,
                     Config.QIODRIVE_BASE_QUANTITY.get(),
-                    Config.QIODRIVE_BASE_SIZE.get()
+                    Config.QIODRIVE_BASE_SIZE.get(),
+                    QIODriveTier.class
             );
 
             modifyField(QIODriveTier.HYPER_DENSE,
                     Config.QIODRIVE_HYPERDENSE_QUANTITY.get(),
-                    Config.QIODRIVE_HYPERDENSE_SIZE.get()
+                    Config.QIODRIVE_HYPERDENSE_SIZE.get(),
+                    QIODriveTier.class
             );
 
             modifyField(QIODriveTier.TIME_DILATING,
                     Config.QIODRIVE_TIMEDILATING_QUANTITY.get(),
-                    Config.QIODRIVE_TIMEDILATING_SIZE.get()
+                    Config.QIODRIVE_TIMEDILATING_SIZE.get(),
+                    QIODriveTier.class
             );
 
             modifyField(QIODriveTier.SUPERMASSIVE,
                     Config.QIODRIVE_SUPERMASSIVE_QUANTITY.get(),
-                    Config.QIODRIVE_SUPERMASSIVE_SIZE.get()
+                    Config.QIODRIVE_SUPERMASSIVE_SIZE.get(),
+                    QIODriveTier.class
             );
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,22 +55,26 @@ public class ConfigHandler {
         try {
             modifyField(ExtraQIODriverTier.COLLAPSE,
                     Config.QIODRIVE_COLLAPSE_QUANTITY.get(),
-                    Config.QIODRIVE_COLLAPSE_SIZE.get()
+                    Config.QIODRIVE_COLLAPSE_SIZE.get(),
+                    ExtraQIODriverTier.class
             );
 
             modifyField(ExtraQIODriverTier.GAMMA,
                     Config.QIODRIVE_GAMMA_QUANTITY.get(),
-                    Config.QIODRIVE_GAMMA_SIZE.get()
+                    Config.QIODRIVE_GAMMA_SIZE.get(),
+                    ExtraQIODriverTier.class
             );
 
             modifyField(ExtraQIODriverTier.BLACK_HOLE,
                     Config.QIODRIVE_BLACK_HOLE_QUANTITY.get(),
-                    Config.QIODRIVE_BLACK_HOLE_SIZE.get()
+                    Config.QIODRIVE_BLACK_HOLE_SIZE.get(),
+                    ExtraQIODriverTier.class
             );
 
             modifyField(ExtraQIODriverTier.SINGULARITY,
                     Config.QIODRIVE_SINGULARITY_QUANTITY.get(),
-                    Config.QIODRIVE_SINGULARITY_SIZE.get()
+                    Config.QIODRIVE_SINGULARITY_SIZE.get(),
+                    ExtraQIODriverTier.class
             );
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,15 +87,16 @@ public class ConfigHandler {
      * @param tier     Objeto cuya clase debe contener los campos "count" y "types".
      * @param newCount Nuevo valor para el campo "count".
      * @param newTypes Nuevo valor para el campo "types".
+     * @param tierClass Clase de `tier` que contiene los campos.
      * @throws Exception Si los campos no existen o no se pueden modificar.
      */
-    private static void modifyField(Object tier, long newCount, int newTypes) throws Exception {
-        Field count = QIODriveTier.class.getDeclaredField("count");
-        count.setAccessible(true);
-        count.set(tier, newCount);
+    private static <T> void modifyField(T tier, long newCount, int newTypes, Class<T> tierClass) throws Exception {
+        Field countField = tierClass.getDeclaredField("count");
+        countField.setAccessible(true);
+        countField.set(tier, newCount);
 
-        Field types = QIODriveTier.class.getDeclaredField("types");
-        types.setAccessible(true);
-        types.set(tier, newTypes);
+        Field typesField = tierClass.getDeclaredField("types");
+        typesField.setAccessible(true);
+        typesField.set(tier, newTypes);
     }
 }

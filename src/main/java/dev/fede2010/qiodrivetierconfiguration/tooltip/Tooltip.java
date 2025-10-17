@@ -43,8 +43,8 @@ public class Tooltip {
             modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_collapse"), "Items:", ClientData.getCollapseQuantity());
             modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_collapse"), "Types:", ClientData.getCollapseSize());
 
-            modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_hyper_gamma"), "Items:", ClientData.getGammaQuantity());
-            modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_hyper_gamma"), "Types:", ClientData.getGammaSize());
+            modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_gamma"), "Items:", ClientData.getGammaQuantity());
+            modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_gamma"), "Types:", ClientData.getGammaSize());
 
             modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_black_hole"), "Items:", ClientData.getBlackHoleQuantity());
             modificarTooltip(event, itemId, new ResourceLocation("mekanism_extras", "qio_drive_black_hole"), "Types:", ClientData.getBlackHoleSize());
